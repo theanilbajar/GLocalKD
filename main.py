@@ -66,8 +66,10 @@ def train(dataset, data_test_loader, model_teacher, model_student, args):
         for batch_idx, data in enumerate(dataset):           
             begin_time = time.time()
             model_student.zero_grad()
-            adj = Variable(data['adj'].float(), requires_grad=False).cuda()
-            h0 = Variable(data['feats'].float(), requires_grad=False).cuda()
+            adj = Variable(data['adj'].float(), requires_grad=False)
+            # .cuda()
+            h0 = Variable(data['feats'].float(), requires_grad=False)
+            # .cuda()
            
             embed_node, embed = model_student(h0, adj)
             embed_teacher_node, embed_teacher = model_teacher(h0, adj)
@@ -93,8 +95,10 @@ def train(dataset, data_test_loader, model_teacher, model_student, args):
             emb=[]
             
             for batch_idx, data in enumerate(data_test_loader):
-               adj = Variable(data['adj'].float(), requires_grad=False).cuda()
-               h0 = Variable(data['feats'].float(), requires_grad=False).cuda()
+               adj = Variable(data['adj'].float(), requires_grad=False)
+            #    .cuda()
+               h0 = Variable(data['feats'].float(), requires_grad=False)
+            #    .cuda()
                         
                embed_node, embed = model_student(h0, adj)
                embed_teacher_node, embed_teacher = model_teacher(h0, adj)
@@ -125,6 +129,7 @@ def train(dataset, data_test_loader, model_teacher, model_student, args):
 if __name__ == '__main__':
     args = arg_parse()
     DS = args.DS
+    print(f'DS: {DS}')
     setup_seed(args.seed)
 
     graphs = load_data.read_graphfile(args.datadir, args.DS, max_nodes=args.max_nodes)  
@@ -155,12 +160,14 @@ if __name__ == '__main__':
         dataset_sampler_train = GraphSampler(graphs_train, features=args.feature, normalize=False, max_num_nodes=max_nodes_num)
     
         model_teacher = GCN_embedding.GcnEncoderGraph_teacher(dataset_sampler_train.feat_dim, args.hidden_dim, args.output_dim, 2,
-                args.num_gc_layers, bn=args.bn, args=args).cuda()
+                args.num_gc_layers, bn=args.bn, args=args)
+                # .cuda()
         for param in model_teacher.parameters():
             param.requires_grad = False
    
         model_student = GCN_embedding.GcnEncoderGraph_student(dataset_sampler_train.feat_dim, args.hidden_dim, args.output_dim, 2,
-                args.num_gc_layers, bn=args.bn, args=args).cuda()
+                args.num_gc_layers, bn=args.bn, args=args)
+                # .cuda()
         
         data_train_loader = torch.utils.data.DataLoader(dataset_sampler_train, 
                                                     shuffle=True,

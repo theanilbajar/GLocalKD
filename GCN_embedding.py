@@ -22,9 +22,12 @@ class GraphConv(nn.Module):
         self.normalize_embedding = normalize_embedding
         self.input_dim = input_dim
         self.output_dim = output_dim
-        self.weight = nn.Parameter(torch.FloatTensor(input_dim, output_dim).cuda())
+        self.weight = nn.Parameter(torch.FloatTensor(input_dim, output_dim))
+        # .cuda())
+
         if bias:
-            self.bias = nn.Parameter(torch.FloatTensor(output_dim).cuda())
+            self.bias = nn.Parameter(torch.FloatTensor(output_dim))
+            # .cuda())
         else:
             self.bias = None
 
@@ -89,7 +92,8 @@ class GcnEncoderGraph_teacher(nn.Module):
     def apply_bn(self, x):
         ''' Batch normalization of 3D tensor x
         '''
-        bn_module = nn.BatchNorm1d(x.size()[1]).cuda()
+        bn_module = nn.BatchNorm1d(x.size()[1])
+        # .cuda()
         return bn_module(x)
 
     def gcn_forward(self, x, adj, conv_first, conv_block, conv_last, embedding_mask=None):
@@ -199,7 +203,8 @@ class GcnEncoderGraph_student(nn.Module):
     def apply_bn(self, x):
         ''' Batch normalization of 3D tensor x
         '''
-        bn_module = nn.BatchNorm1d(x.size()[1]).cuda()
+        bn_module = nn.BatchNorm1d(x.size()[1])
+        # .cuda()
         return bn_module(x)
 
     def gcn_forward(self, x, adj, conv_first, conv_block, conv_last, embedding_mask=None):
