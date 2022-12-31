@@ -138,7 +138,7 @@ if __name__ == '__main__':
         max_nodes_num = max([G.number_of_nodes() for G in graphs])
     else:
         max_nodes_num = args.max_nodes
-    print(datanum)
+    print(f'Total graphs: {datanum}')
     graphs_label = [graph.graph['label'] for graph in graphs]
     
     kfd=StratifiedKFold(n_splits=5, random_state=args.seed, shuffle = True)
