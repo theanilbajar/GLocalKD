@@ -153,6 +153,7 @@ if __name__ == '__main__':
         num_test = len(graphs_test)
         print(num_train, num_test)
         
+        # TODO What if there are no node features?
         dataset_sampler_train = GraphSampler(graphs_train, features=args.feature, normalize=False, max_num_nodes=max_nodes_num)
     
         model_teacher = GCN_embedding.GcnEncoderGraph_teacher(dataset_sampler_train.feat_dim, args.hidden_dim, args.output_dim, 2,
