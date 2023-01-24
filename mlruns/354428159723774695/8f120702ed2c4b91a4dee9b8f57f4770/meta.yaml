@@ -1,0 +1,15 @@
+artifact_uri: file:///content/GLocalKD/mlruns/354428159723774695/8f120702ed2c4b91a4dee9b8f57f4770/artifacts
+end_time: 1674589552317
+entry_point_name: ''
+experiment_id: '354428159723774695'
+lifecycle_stage: active
+run_id: 8f120702ed2c4b91a4dee9b8f57f4770
+run_name: DHFR
+run_uuid: 8f120702ed2c4b91a4dee9b8f57f4770
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1674589551714
+status: 4
+tags: []
+user_id: root
