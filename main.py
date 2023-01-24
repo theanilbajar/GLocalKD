@@ -27,6 +27,8 @@ from matplotlib import cm
 from tdc.utils import retrieve_label_name_list
 from sklearn.model_selection import train_test_split
 from sklearn.model_selection import StratifiedKFold
+import mlflow
+
 
 def arg_parse():
     parser = argparse.ArgumentParser(description='GLocalKD Arguments.')
@@ -123,62 +125,71 @@ def train(dataset, data_test_loader, model_teacher, model_student, args):
 
     
 if __name__ == '__main__':
-    args = arg_parse()
-    DS = args.DS
-    print(f'DS: {DS}')
-    setup_seed(args.seed)
 
-    graphs = load_data.read_graphfile(args.datadir, args.DS, max_nodes=args.max_nodes)  
-    datanum = len(graphs)
-    if args.max_nodes == 0:
-        max_nodes_num = max([G.number_of_nodes() for G in graphs])
-    else:
-        max_nodes_num = args.max_nodes
-    print(f'Total graphs: {datanum}')
-    graphs_label = [graph.graph['label'] for graph in graphs]
-    
-    kfd=StratifiedKFold(n_splits=5, random_state=args.seed, shuffle = True)
-    result_auc=[]
-    for k, (train_index,test_index) in enumerate(kfd.split(graphs, graphs_label)):
-        graphs_train_ = [graphs[i] for i in train_index]
-        graphs_test = [graphs[i] for i in test_index]
-       
-        graphs_train = []
-        for graph in graphs_train_:
-            if graph.graph['label'] != 0:
-                graphs_train.append(graph)
-        
+    mlflow.set_experiment("glocalkd")
+    experiment = mlflow.get_experiment_by_name("glocalkd")
 
-        num_train = len(graphs_train)
-        num_test = len(graphs_test)
-        print(num_train, num_test)
+    with mlflow.start_run(experiment_id=experiment.experiment_id):
+
+        args = arg_parse()
+        DS = args.DS
+        print(f'DS: {DS}')
+        setup_seed(args.seed)
+
+        graphs = load_data.read_graphfile(args.datadir, args.DS, max_nodes=args.max_nodes)  
+        datanum = len(graphs)
+        if args.max_nodes == 0:
+            max_nodes_num = max([G.number_of_nodes() for G in graphs])
+        else:
+            max_nodes_num = args.max_nodes
+        print(f'Total graphs: {datanum}')
+        graphs_label = [graph.graph['label'] for graph in graphs]
         
-        # TODO What if there are no node features?
-        dataset_sampler_train = GraphSampler(graphs_train, features=args.feature, normalize=False, max_num_nodes=max_nodes_num)
-    
-        model_teacher = GCN_embedding.GcnEncoderGraph_teacher(dataset_sampler_train.feat_dim, args.hidden_dim, args.output_dim, 2,
-                args.num_gc_layers, bn=args.bn, args=args).cuda()
-        for param in model_teacher.parameters():
-            param.requires_grad = False
-   
-        model_student = GCN_embedding.GcnEncoderGraph_student(dataset_sampler_train.feat_dim, args.hidden_dim, args.output_dim, 2,
-                args.num_gc_layers, bn=args.bn, args=args).cuda()
+        kfd=StratifiedKFold(n_splits=5, random_state=args.seed, shuffle = True)
+        result_auc=[]
+        for k, (train_index,test_index) in enumerate(kfd.split(graphs, graphs_label)):
+            graphs_train_ = [graphs[i] for i in train_index]
+            graphs_test = [graphs[i] for i in test_index]
         
-        data_train_loader = torch.utils.data.DataLoader(dataset_sampler_train, 
-                                                    shuffle=True,
-                                                    batch_size=args.batch_size)
-    
-        dataset_sampler_test = GraphSampler(graphs_test, features=args.feature, normalize=False, max_num_nodes=max_nodes_num)
-        data_test_loader = torch.utils.data.DataLoader(dataset_sampler_test, 
-                                                        shuffle=False,
-                                                        batch_size=1)
-        result = train(data_train_loader, data_test_loader, model_teacher, model_student, args)     
-        result_auc.append(result)
+            graphs_train = []
+            for graph in graphs_train_:
+                if graph.graph['label'] != 0:
+                    graphs_train.append(graph)
             
-    result_auc = np.array(result_auc)    
-    auc_avg = np.mean(result_auc)
-    auc_std = np.std(result_auc)
-    print('auroc{}, average: {}, std: {}'.format(result_auc, auc_avg, auc_std))
+
+            num_train = len(graphs_train)
+            num_test = len(graphs_test)
+            print(num_train, num_test)
+            
+            # TODO What if there are no node features?
+            dataset_sampler_train = GraphSampler(graphs_train, features=args.feature, normalize=False, max_num_nodes=max_nodes_num)
+        
+            model_teacher = GCN_embedding.GcnEncoderGraph_teacher(dataset_sampler_train.feat_dim, args.hidden_dim, args.output_dim, 2,
+                    args.num_gc_layers, bn=args.bn, args=args).cuda()
+            for param in model_teacher.parameters():
+                param.requires_grad = False
     
-    
-    
+            model_student = GCN_embedding.GcnEncoderGraph_student(dataset_sampler_train.feat_dim, args.hidden_dim, args.output_dim, 2,
+                    args.num_gc_layers, bn=args.bn, args=args).cuda()
+            
+            data_train_loader = torch.utils.data.DataLoader(dataset_sampler_train, 
+                                                        shuffle=True,
+                                                        batch_size=args.batch_size)
+        
+            dataset_sampler_test = GraphSampler(graphs_test, features=args.feature, normalize=False, max_num_nodes=max_nodes_num)
+            data_test_loader = torch.utils.data.DataLoader(dataset_sampler_test, 
+                                                            shuffle=False,
+                                                            batch_size=1)
+            result = train(data_train_loader, data_test_loader, model_teacher, model_student, args)     
+            result_auc.append(result)
+                
+        result_auc = np.array(result_auc)    
+        auc_avg = np.mean(result_auc)
+        auc_std = np.std(result_auc)
+        print('auroc{}, average: {}, std: {}'.format(result_auc, auc_avg, auc_std))
+
+        mlflow.log_params("args", args)
+        mlflow.log_metrics({"auc_std": auc_std, "auc_avg": auc_avg})
+
+        mlflow.pytorch.log_model(model_teacher, "teacher_model")
+        mlflow.pytorch.log_model(model_teacher, "parent_model")
