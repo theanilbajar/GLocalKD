@@ -53,3 +53,4 @@ typing_extensions==4.4.0
 urllib3==1.26.13
 wasabi==0.10.1
 Werkzeug==2.2.2
+mlflow
