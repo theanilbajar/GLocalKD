@@ -1,0 +1,15 @@
+artifact_uri: file:///content/GLocalKD/mlruns/354428159723774695/9f782ded7a9d49d5b076d2fc9e27bf9c/artifacts
+end_time: 1674585699769
+entry_point_name: ''
+experiment_id: '354428159723774695'
+lifecycle_stage: active
+run_id: 9f782ded7a9d49d5b076d2fc9e27bf9c
+run_name: salty-gull-249
+run_uuid: 9f782ded7a9d49d5b076d2fc9e27bf9c
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1674585657383
+status: 3
+tags: []
+user_id: root

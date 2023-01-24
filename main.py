@@ -129,10 +129,11 @@ if __name__ == '__main__':
     mlflow.set_experiment("glocalkd")
     experiment = mlflow.get_experiment_by_name("glocalkd")
 
-    with mlflow.start_run(experiment_id=experiment.experiment_id):
+    args = arg_parse()
+    DS = args.DS
 
-        args = arg_parse()
-        DS = args.DS
+    with mlflow.start_run(run_name=DS, experiment_id=experiment.experiment_id):
+        
         print(f'DS: {DS}')
         setup_seed(args.seed)
 
@@ -188,7 +189,7 @@ if __name__ == '__main__':
         auc_std = np.std(result_auc)
         print('auroc{}, average: {}, std: {}'.format(result_auc, auc_avg, auc_std))
 
-        mlflow.log_params("args", args)
+        mlflow.log_params(vars(args))
         mlflow.log_metrics({"auc_std": auc_std, "auc_avg": auc_avg})
 
         mlflow.pytorch.log_model(model_teacher, "teacher_model")

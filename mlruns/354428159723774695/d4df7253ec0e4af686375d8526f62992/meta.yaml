@@ -1,0 +1,15 @@
+artifact_uri: file:///content/GLocalKD/mlruns/354428159723774695/d4df7253ec0e4af686375d8526f62992/artifacts
+end_time: 1674586163490
+entry_point_name: ''
+experiment_id: '354428159723774695'
+lifecycle_stage: active
+run_id: d4df7253ec0e4af686375d8526f62992
+run_name: youthful-doe-279
+run_uuid: d4df7253ec0e4af686375d8526f62992
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1674585990286
+status: 3
+tags: []
+user_id: root

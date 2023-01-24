@@ -1,0 +1,15 @@
+artifact_uri: file:///content/GLocalKD/mlruns/354428159723774695/65cc043bc387473391adaf91a390d07d/artifacts
+end_time: 1674585839192
+entry_point_name: ''
+experiment_id: '354428159723774695'
+lifecycle_stage: active
+run_id: 65cc043bc387473391adaf91a390d07d
+run_name: sneaky-snake-705
+run_uuid: 65cc043bc387473391adaf91a390d07d
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1674585754450
+status: 3
+tags: []
+user_id: root
