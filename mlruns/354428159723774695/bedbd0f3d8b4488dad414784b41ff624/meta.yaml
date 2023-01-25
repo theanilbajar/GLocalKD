@@ -1,0 +1,15 @@
+artifact_uri: file:///content/GLocalKD/mlruns/354428159723774695/bedbd0f3d8b4488dad414784b41ff624/artifacts
+end_time: 1674639028890
+entry_point_name: ''
+experiment_id: '354428159723774695'
+lifecycle_stage: active
+run_id: bedbd0f3d8b4488dad414784b41ff624
+run_name: BZR_cosine
+run_uuid: bedbd0f3d8b4488dad414784b41ff624
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1674639025480
+status: 4
+tags: []
+user_id: root
