@@ -1,0 +1,15 @@
+artifact_uri: file:///content/GLocalKD/mlruns/354428159723774695/a9d8d7dd99244212a1a99060cc7431b2/artifacts
+end_time: 1674639879221
+entry_point_name: ''
+experiment_id: '354428159723774695'
+lifecycle_stage: active
+run_id: a9d8d7dd99244212a1a99060cc7431b2
+run_name: ENZYMES_cosine
+run_uuid: a9d8d7dd99244212a1a99060cc7431b2
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1674639875235
+status: 4
+tags: []
+user_id: root
