@@ -46,7 +46,7 @@ smart-open
 srsly
 thinc
 threadpoolctl
-torch==1.13.0
+torch==1.13.1
 tqdm
 typer
 typing_extensions
