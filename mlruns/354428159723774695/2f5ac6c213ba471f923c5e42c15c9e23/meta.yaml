@@ -1,0 +1,15 @@
+artifact_uri: file:///content/GLocalKD/mlruns/354428159723774695/2f5ac6c213ba471f923c5e42c15c9e23/artifacts
+end_time: 1674624297171
+entry_point_name: ''
+experiment_id: '354428159723774695'
+lifecycle_stage: active
+run_id: 2f5ac6c213ba471f923c5e42c15c9e23
+run_name: NCI1_cosine
+run_uuid: 2f5ac6c213ba471f923c5e42c15c9e23
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1674624291766
+status: 4
+tags: []
+user_id: root
