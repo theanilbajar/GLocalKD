@@ -75,8 +75,9 @@ def train(dataset, data_test_loader, model_teacher, model_student, args):
             embed_teacher_node, embed_teacher = model_teacher(h0, adj)
             embed_teacher =  embed_teacher.detach()
             embed_teacher_node = embed_teacher_node.detach()
-            loss_node = torch.mean(F.mse_loss(embed_node, embed_teacher_node, reduction='none'), dim=2).mean(dim=1).mean(dim=0)
-            loss = F.mse_loss(embed, embed_teacher, reduction='none').mean(dim=1).mean(dim=0)
+            loss_node = torch.mean(F.cosine_embedding_loss(embed_node, embed_teacher_node, reduction='none'), dim=2).mean(dim=1).mean(dim=0)
+            # loss_node = torch.mean(F.mse_loss(embed_node, embed_teacher_node, reduction='none'), dim=2).mean(dim=1).mean(dim=0)
+            loss = F.cosine_embedding_loss(embed, embed_teacher, reduction='none').mean(dim=1).mean(dim=0)
             loss = loss + loss_node
             
             loss.backward(loss.clone().detach())
@@ -130,7 +131,7 @@ if __name__ == '__main__':
     experiment = mlflow.get_experiment_by_name("glocalkd")
 
     args = arg_parse()
-    DS = args.DS
+    DS = f'{args.DS}_cosine'
 
     with mlflow.start_run(run_name=DS, experiment_id=experiment.experiment_id):
         
