@@ -20,7 +20,7 @@ langcodes
 MarkupSafe
 matplotlib
 murmurhash
-networkx
+networkx==2.8.8
 numpy
 nvidia-cublas-cu11
 nvidia-cuda-nvrtc-cu11
