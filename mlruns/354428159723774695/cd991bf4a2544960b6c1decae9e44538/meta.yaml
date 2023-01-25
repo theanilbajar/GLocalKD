@@ -1,0 +1,15 @@
+artifact_uri: file:///content/GLocalKD/mlruns/354428159723774695/cd991bf4a2544960b6c1decae9e44538/artifacts
+end_time: 1674623997937
+entry_point_name: ''
+experiment_id: '354428159723774695'
+lifecycle_stage: active
+run_id: cd991bf4a2544960b6c1decae9e44538
+run_name: AIDS_cosine
+run_uuid: cd991bf4a2544960b6c1decae9e44538
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1674623990789
+status: 4
+tags: []
+user_id: root
