@@ -1,0 +1,15 @@
+artifact_uri: file:///content/GLocalKD/mlruns/354428159723774695/4d26851a857242b4b335fbaa0188a4df/artifacts
+end_time: 1674617819464
+entry_point_name: ''
+experiment_id: '354428159723774695'
+lifecycle_stage: active
+run_id: 4d26851a857242b4b335fbaa0188a4df
+run_name: COX2
+run_uuid: 4d26851a857242b4b335fbaa0188a4df
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1674617773573
+status: 3
+tags: []
+user_id: root

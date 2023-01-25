@@ -1,0 +1,15 @@
+artifact_uri: file:///content/GLocalKD/mlruns/354428159723774695/1147978a554f4d2a8205979390cfa3bb/artifacts
+end_time: 1674618052860
+entry_point_name: ''
+experiment_id: '354428159723774695'
+lifecycle_stage: active
+run_id: 1147978a554f4d2a8205979390cfa3bb
+run_name: ENZYMES
+run_uuid: 1147978a554f4d2a8205979390cfa3bb
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1674617910882
+status: 3
+tags: []
+user_id: root

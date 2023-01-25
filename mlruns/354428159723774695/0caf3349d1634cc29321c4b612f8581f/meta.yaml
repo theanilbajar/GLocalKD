@@ -1,0 +1,15 @@
+artifact_uri: file:///content/GLocalKD/mlruns/354428159723774695/0caf3349d1634cc29321c4b612f8581f/artifacts
+end_time: 1674619708171
+entry_point_name: ''
+experiment_id: '354428159723774695'
+lifecycle_stage: active
+run_id: 0caf3349d1634cc29321c4b612f8581f
+run_name: PROTEINS_full
+run_uuid: 0caf3349d1634cc29321c4b612f8581f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1674618794475
+status: 3
+tags: []
+user_id: root
