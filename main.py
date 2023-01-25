@@ -75,9 +75,9 @@ def train(dataset, data_test_loader, model_teacher, model_student, args):
             embed_teacher_node, embed_teacher = model_teacher(h0, adj)
             embed_teacher =  embed_teacher.detach()
             embed_teacher_node = embed_teacher_node.detach()
-            loss_node = torch.mean(F.cosine_embedding_loss(embed_node, embed_teacher_node, reduction='none'), dim=2).mean(dim=1).mean(dim=0)
+            loss_node = torch.mean(F.cosine_embedding_loss(embed_node, embed_teacher_node, 1, reduction='none'), dim=2).mean(dim=1).mean(dim=0)
             # loss_node = torch.mean(F.mse_loss(embed_node, embed_teacher_node, reduction='none'), dim=2).mean(dim=1).mean(dim=0)
-            loss = F.cosine_embedding_loss(embed, embed_teacher, reduction='none').mean(dim=1).mean(dim=0)
+            loss = F.cosine_embedding_loss(embed, embed_teacher, 1, reduction='none').mean(dim=1).mean(dim=0)
             loss = loss + loss_node
             
             loss.backward(loss.clone().detach())
@@ -101,8 +101,8 @@ def train(dataset, data_test_loader, model_teacher, model_student, args):
                         
                embed_node, embed = model_student(h0, adj)
                embed_teacher_node, embed_teacher = model_teacher(h0, adj)
-               loss_node = torch.mean(F.mse_loss(embed_node, embed_teacher_node, reduction='none'), dim=2).mean(dim=1)
-               loss_graph = F.mse_loss(embed, embed_teacher, reduction='none').mean(dim=1)
+               loss_node = torch.mean(F.cosine_embedding_loss(embed_node, embed_teacher_node, 1, reduction='none'), dim=2).mean(dim=1)
+               loss_graph = F.cosine_embedding_loss(embed, embed_teacher, 1, reduction='none').mean(dim=1)
                loss_ = loss_graph + loss_node
                loss_ = np.array(loss_.cpu().detach())
                loss.append(loss_)
