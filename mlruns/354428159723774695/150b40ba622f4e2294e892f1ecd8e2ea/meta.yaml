@@ -1,8 +1,9 @@
 artifact_uri: file:///content/GLocalKD/mlruns/354428159723774695/150b40ba622f4e2294e892f1ecd8e2ea/artifacts
+deleted_time: 1674650118124
 end_time: 1674639043708
 entry_point_name: ''
 experiment_id: '354428159723774695'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 150b40ba622f4e2294e892f1ecd8e2ea
 run_name: DHFR_cosine
 run_uuid: 150b40ba622f4e2294e892f1ecd8e2ea

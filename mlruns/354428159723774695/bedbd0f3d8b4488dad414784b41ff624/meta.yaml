@@ -1,8 +1,9 @@
 artifact_uri: file:///content/GLocalKD/mlruns/354428159723774695/bedbd0f3d8b4488dad414784b41ff624/artifacts
+deleted_time: 1674650118129
 end_time: 1674639028890
 entry_point_name: ''
 experiment_id: '354428159723774695'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: bedbd0f3d8b4488dad414784b41ff624
 run_name: BZR_cosine
 run_uuid: bedbd0f3d8b4488dad414784b41ff624

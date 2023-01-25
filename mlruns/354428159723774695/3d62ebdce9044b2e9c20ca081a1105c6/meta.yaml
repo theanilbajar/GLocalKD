@@ -1,8 +1,9 @@
 artifact_uri: file:///content/GLocalKD/mlruns/354428159723774695/3d62ebdce9044b2e9c20ca081a1105c6/artifacts
+deleted_time: 1674650118106
 end_time: 1674639051149
 entry_point_name: ''
 experiment_id: '354428159723774695'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 3d62ebdce9044b2e9c20ca081a1105c6
 run_name: ENZYMES_cosine
 run_uuid: 3d62ebdce9044b2e9c20ca081a1105c6

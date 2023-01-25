@@ -1,8 +1,9 @@
 artifact_uri: file:///content/GLocalKD/mlruns/354428159723774695/7d9be0318c004ea0ab9f747fdd4f21be/artifacts
+deleted_time: 1674650118156
 end_time: 1674631788511
 entry_point_name: ''
 experiment_id: '354428159723774695'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 7d9be0318c004ea0ab9f747fdd4f21be
 run_name: NCI1_cosine
 run_uuid: 7d9be0318c004ea0ab9f747fdd4f21be

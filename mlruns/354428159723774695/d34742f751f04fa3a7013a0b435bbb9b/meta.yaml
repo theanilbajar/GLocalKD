@@ -1,8 +1,9 @@
 artifact_uri: file:///content/GLocalKD/mlruns/354428159723774695/d34742f751f04fa3a7013a0b435bbb9b/artifacts
+deleted_time: 1674650118133
 end_time: 1674639036499
 entry_point_name: ''
 experiment_id: '354428159723774695'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: d34742f751f04fa3a7013a0b435bbb9b
 run_name: COX2_cosine
 run_uuid: d34742f751f04fa3a7013a0b435bbb9b

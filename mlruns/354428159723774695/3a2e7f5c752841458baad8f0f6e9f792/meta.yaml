@@ -1,8 +1,9 @@
 artifact_uri: file:///content/GLocalKD/mlruns/354428159723774695/3a2e7f5c752841458baad8f0f6e9f792/artifacts
+deleted_time: 1674650118033
 end_time: 1674639914988
 entry_point_name: ''
 experiment_id: '354428159723774695'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 3a2e7f5c752841458baad8f0f6e9f792
 run_name: PROTEINS_full_cosine
 run_uuid: 3a2e7f5c752841458baad8f0f6e9f792

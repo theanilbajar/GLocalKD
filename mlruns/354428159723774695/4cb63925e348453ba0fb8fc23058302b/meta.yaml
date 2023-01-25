@@ -1,8 +1,9 @@
 artifact_uri: file:///content/GLocalKD/mlruns/354428159723774695/4cb63925e348453ba0fb8fc23058302b/artifacts
+deleted_time: 1674650118287
 end_time: 1674624035240
 entry_point_name: ''
 experiment_id: '354428159723774695'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 4cb63925e348453ba0fb8fc23058302b
 run_name: IMDB-BINARY_cosine
 run_uuid: 4cb63925e348453ba0fb8fc23058302b

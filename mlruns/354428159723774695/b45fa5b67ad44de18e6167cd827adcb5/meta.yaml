@@ -1,8 +1,9 @@
 artifact_uri: file:///content/GLocalKD/mlruns/354428159723774695/b45fa5b67ad44de18e6167cd827adcb5/artifacts
+deleted_time: 1674650118135
 end_time: 1674639021004
 entry_point_name: ''
 experiment_id: '354428159723774695'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: b45fa5b67ad44de18e6167cd827adcb5
 run_name: AIDS_cosine
 run_uuid: b45fa5b67ad44de18e6167cd827adcb5
