@@ -1,8 +1,9 @@
 artifact_uri: file:///content/GLocalKD/mlruns/354428159723774695/d343d1452ece43f984e73ed6a5da865c/artifacts
+deleted_time: 1674619849474
 end_time: 1674589556097
 entry_point_name: ''
 experiment_id: '354428159723774695'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: d343d1452ece43f984e73ed6a5da865c
 run_name: ENZYMES
 run_uuid: d343d1452ece43f984e73ed6a5da865c

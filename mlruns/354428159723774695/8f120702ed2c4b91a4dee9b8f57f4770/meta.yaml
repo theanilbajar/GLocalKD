@@ -1,8 +1,9 @@
 artifact_uri: file:///content/GLocalKD/mlruns/354428159723774695/8f120702ed2c4b91a4dee9b8f57f4770/artifacts
+deleted_time: 1674619849474
 end_time: 1674589552317
 entry_point_name: ''
 experiment_id: '354428159723774695'
-lifecycle_stage: active
+lifecycle_stage: deleted
 run_id: 8f120702ed2c4b91a4dee9b8f57f4770
 run_name: DHFR
 run_uuid: 8f120702ed2c4b91a4dee9b8f57f4770
