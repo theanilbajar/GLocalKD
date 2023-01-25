@@ -1,0 +1,15 @@
+artifact_uri: file:///content/GLocalKD/mlruns/354428159723774695/3a7ce02b116f4567b9eacad1d4f90b3f/artifacts
+end_time: 1674643539397
+entry_point_name: ''
+experiment_id: '354428159723774695'
+lifecycle_stage: active
+run_id: 3a7ce02b116f4567b9eacad1d4f90b3f
+run_name: IMDB-BINARY_cosine
+run_uuid: 3a7ce02b116f4567b9eacad1d4f90b3f
+source_name: ''
+source_type: 4
+source_version: ''
+start_time: 1674643356702
+status: 3
+tags: []
+user_id: root

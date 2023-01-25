@@ -1,3 +1,15 @@
 DS: PROTEINS_full_cosine
 Total graphs: 1113
 360 223
+semi-supervised abnormal detection: auroc_ab: 0.23274853801169587
+semi-supervised abnormal detection: auroc_ab: 0.23249791144527981
+semi-supervised abnormal detection: auroc_ab: 0.23253968253968255
+semi-supervised abnormal detection: auroc_ab: 0.23233082706766917
+semi-supervised abnormal detection: auroc_ab: 0.23241436925647452
+semi-supervised abnormal detection: auroc_ab: 0.23237259816207184
+semi-supervised abnormal detection: auroc_ab: 0.23279030910609858
+semi-supervised abnormal detection: auroc_ab: 0.23266499582289055
+semi-supervised abnormal detection: auroc_ab: 0.23266499582289057
+semi-supervised abnormal detection: auroc_ab: 0.23291562238930658
+semi-supervised abnormal detection: auroc_ab: 0.23279030910609855
+semi-supervised abnormal detection: auroc_ab: 0.23266499582289052
